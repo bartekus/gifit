@@ -2,6 +2,22 @@
   "name": "gifit",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
+  "author": "Bartek Kus <bartekus@gmail.com> (https://bartekus.com/)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bartekus/gifit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bartekus/gifit/issues"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "format": "prettier --write 'src/**/*.{ts,tsx,json}'"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -15,11 +31,21 @@
     "react-scripts": "3.4.1",
     "typescript": "~3.7.2"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "husky": "4.2.3",
+    "lint-staged": "10.1.2",
+    "prettier": "2.0.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx,json}": [
+      "yarn run format",
+      "git add"
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,5 +61,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "keywords": [
+    "cra",
+    "modular",
+    "redux",
+    "saga",
+    "gif",
+    "search"
+  ]
 }
