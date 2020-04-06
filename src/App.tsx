@@ -2,14 +2,14 @@ import React, { Fragment } from 'react';
 
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
-import DashboardPage from './pages/DashboardPage';
+import Router from './Router';
 
 function App() {
   return (
     <Fragment>
       <NavBar />
       <main>
-        <DashboardPage />
+        <Router />
       </main>
       <Footer />
     </Fragment>
