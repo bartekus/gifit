@@ -4,6 +4,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `yarn run commit [patch|minor|major] "Git commit message goes here"`
+
+Automated commit & npm package version increase.<br />
+> **Note: you should add files that you wish to commit before running this command!**
+
 ### `yarn start`
 
 Runs the app in the development mode.<br />
