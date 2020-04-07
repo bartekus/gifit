@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { AppBar, Button, IconButton, Toolbar } from '@material-ui/core';
+import { AppBar, Button, Toolbar } from '@material-ui/core';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { Favorite as FavoriteIcon, Search as SearchIcon, Reply as ReplyIcon } from '@material-ui/icons';
+import { Favorite as FavoriteIcon, Reply as ReplyIcon } from '@material-ui/icons';
+
+import SearchBox from './SearchBox';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -43,9 +45,7 @@ export default function NavBar() {
           Gifit
         </Button>
         <span className={classes.toolbarSpacer}> </span>
-        <IconButton>
-          <SearchIcon />
-        </IconButton>
+        <SearchBox />
         <Button variant="contained" color="primary" className={classes.link} component={Link} to="/bookmark">
           My Saved Gifs
         </Button>
