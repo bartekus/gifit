@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import throttle from 'lodash/throttle';
 import { BrowserRouter } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core/styles';
@@ -9,10 +10,20 @@ import theme from './theme';
 import App from './App';
 import configureStore from './store/configure';
 import ApiService from './services/api';
+import { loadState, saveState } from './services/localStorage';
 
 import * as serviceWorker from './serviceWorker';
 
-const store = configureStore({ initialState: {}, services: { ApiService } });
+const persistedState = loadState();
+
+const store = configureStore({ initialState: persistedState, services: { ApiService } });
+
+store.subscribe(
+  throttle(() => {
+    // @ts-ignore
+    saveState({ bookmarkedGifs: store.getState().bookmarkedGifs });
+  }, 1000)
+);
 
 ReactDOM.render(
   <React.StrictMode>
